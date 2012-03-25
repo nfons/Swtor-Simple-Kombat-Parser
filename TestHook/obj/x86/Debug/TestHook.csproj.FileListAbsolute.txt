@@ -1,0 +1,9 @@
+c:\users\nate\documents\visual studio 2010\Projects\TestHook\TestHook\bin\Debug\TestHook.exe
+c:\users\nate\documents\visual studio 2010\Projects\TestHook\TestHook\bin\Debug\TestHook.pdb
+c:\users\nate\documents\visual studio 2010\Projects\TestHook\TestHook\obj\x86\Debug\ResolveAssemblyReference.cache
+c:\users\nate\documents\visual studio 2010\Projects\TestHook\TestHook\obj\x86\Debug\TestHook.Form1.resources
+c:\users\nate\documents\visual studio 2010\Projects\TestHook\TestHook\obj\x86\Debug\TestHook.Properties.Resources.resources
+c:\users\nate\documents\visual studio 2010\Projects\TestHook\TestHook\obj\x86\Debug\GenerateResource.read.1.tlog
+c:\users\nate\documents\visual studio 2010\Projects\TestHook\TestHook\obj\x86\Debug\GenerateResource.write.1.tlog
+c:\users\nate\documents\visual studio 2010\Projects\TestHook\TestHook\obj\x86\Debug\TestHook.exe
+c:\users\nate\documents\visual studio 2010\Projects\TestHook\TestHook\obj\x86\Debug\TestHook.pdb

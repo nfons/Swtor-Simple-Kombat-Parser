@@ -1,0 +1,9 @@
+C:\Users\Nate\Documents\Visual Studio 2010\Projects\TestHook\TestHook\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Nate\Documents\Visual Studio 2010\Projects\TestHook\TestHook\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\Nate\Documents\Visual Studio 2010\Projects\TestHook\TestHook\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\Nate\Documents\Visual Studio 2010\Projects\TestHook\TestHook\obj\x86\Debug\TestHook.exe
+C:\Users\Nate\Documents\Visual Studio 2010\Projects\TestHook\TestHook\obj\x86\Debug\TestHook.pdb
+C:\Users\Nate\Documents\Visual Studio 2010\Projects\TestHook\TestHook\obj\x86\Debug\KombatParser.Properties.Resources.resources
+C:\Users\Nate\Documents\Visual Studio 2010\Projects\TestHook\TestHook\bin\Debug\TestHook.exe
+C:\Users\Nate\Documents\Visual Studio 2010\Projects\TestHook\TestHook\bin\Debug\TestHook.pdb
+C:\Users\Nate\Documents\Visual Studio 2010\Projects\TestHook\TestHook\obj\x86\Debug\KombatParser.overlay.resources
