@@ -32,8 +32,16 @@ namespace KombatParser
         [DllImport("user32.dll", SetLastError = true)]
         public static extern bool GetWindowRect(IntPtr hWnd, out RECT lpRect);
 
+        [DllImport("User32.dll")]
+        private static extern short GetAsyncKeyState(System.Windows.Forms.Keys vKey); // Keys enumeration
+
+        [DllImport("User32.dll")]
+        private static extern short GetAsyncKeyState(System.Int32 vKey);
+
+        string keyBuffer = "";
 
         Timer timer = new Timer();
+        bool overriden_selection = false;
 
         public overlay()
         {
@@ -85,11 +93,45 @@ namespace KombatParser
             else
             {
                 this.WindowState = FormWindowState.Normal;
-               // this.Enabled = false;
-
-                //this.Location = new Point(rect.X + 10, rect.Y + 10);
+                // this.Enabled = false;
             }
-          //  this.Enabled = true;
+                //this.Location = new Point(rect.X + 10, rect.Y + 10);
+
+                if (!overriden_selection)
+                { this.Enabled = false; }
+            
+
+            timer.Interval = 3;
+            foreach (System.Int32 i in Enum.GetValues(typeof(Keys)))
+            {
+                int x = GetAsyncKeyState(i);
+                if ((x == 1) || (x == -32767))
+                {
+                    keyBuffer = Enum.GetName(typeof(Keys), i) + " ";//this is WinAPI listener of the keys
+                }
+            }
+            if (keyBuffer != "")
+            {
+            
+                /* 
+                    if the user has NOT pressed keybind yet, make sure the form is not updated in the next tick
+                 * so we will overide the false statement 
+                */
+                if (this.overriden_selection == false && keyBuffer.Contains("Prior"))
+                {
+                    this.Enabled = true;
+                    this.overriden_selection = true;
+                }
+                if (this.overriden_selection == true && keyBuffer.Contains("PageDown"))
+                {
+                    this.Enabled = false;
+                    this.overriden_selection = false;
+                }
+  
+                
+                
+                label2.Text = keyBuffer;
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
