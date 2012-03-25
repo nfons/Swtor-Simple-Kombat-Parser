@@ -85,11 +85,11 @@ namespace KombatParser
             else
             {
                 this.WindowState = FormWindowState.Normal;
-                this.Enabled = false;
+               // this.Enabled = false;
 
                 //this.Location = new Point(rect.X + 10, rect.Y + 10);
             }
-            this.Enabled = true;
+          //  this.Enabled = true;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -101,17 +101,22 @@ namespace KombatParser
             }
 
             //Test Data
-            LogLine l = new LogLine("[03/20/2012 15:03:19] [@Peskend] [Separatist Scout {505105333878784}] [Hammer Shot {801299163512832}] [ApplyEffect {836045448945477}: Damage {836045448945501}] (0 -miss {836045448945502}) <1>");
+            LogLine l = new LogLine("[03/20/2012 15:03:19] [@Peskend] [Separatist Scout {505105333878784}] [Hammer Shot {801299163512832}] [ApplyEffect {836045448945477}: Damage {836045448945501}] (6 energy {836045448940874}) <6>");
+            this.label2.Text = l.time_stamp.Month.ToString();
         }
     }
 
     /*
      * Special Thanks
+     * slightly modified 
      * */
     // Danial Afzal
     // iotasquared@gmail.com
      class LogLine
     {
+        public string time;
+        public DateTime time_stamp;
+
         public string source;
         public string target;
         public string ability;
@@ -130,6 +135,9 @@ namespace KombatParser
         {
             line = id_regex.Replace(line, "");
             MatchCollection matches = regex.Matches(line);
+            time = matches[0].Groups[1].Value;
+            time_stamp = ParseDateTime(time);
+
             source = matches[0].Groups[2].Value;
             target = matches[0].Groups[3].Value;
             ability = matches[0].Groups[4].Value;
@@ -156,6 +164,27 @@ namespace KombatParser
                 value_type = "";
             }
             threat = matches[0].Groups[8].Value.Length > 0 ? int.Parse(matches[0].Groups[8].Value) : 0;
+        }
+
+        private DateTime ParseDateTime(string line)
+        {
+            try
+            {
+                int year, month, day, hour, min, sec;
+                month = Convert.ToInt32(line.Substring(0, 2));
+                day = Convert.ToInt32(line.Substring(3, 2));
+                year = Convert.ToInt32(line.Substring(6, 4));
+                hour = Convert.ToInt32(line.Substring(11, 2));
+                min = Convert.ToInt32(line.Substring(14, 2));
+                sec = Convert.ToInt32(line.Substring(17, 2));
+
+                return new DateTime(year, month, day, hour, min, sec);
+            }
+            catch (FormatException e)
+            {
+                return new DateTime(1990, 5, 22, 1, 1, 1);
+            }
+            
         }
     }
 }
