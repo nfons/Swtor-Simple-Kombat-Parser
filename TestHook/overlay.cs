@@ -80,13 +80,16 @@ namespace KombatParser
             {
                 // the game is minimized
                 this.WindowState = FormWindowState.Minimized;
+                this.Enabled = true;
             }
             else
             {
                 this.WindowState = FormWindowState.Normal;
+                this.Enabled = false;
+
                 //this.Location = new Point(rect.X + 10, rect.Y + 10);
             }
-
+            this.Enabled = true;
         }
 
         private void button1_Click(object sender, EventArgs e)
